@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import cookie from 'js-cookie';
 import Link from 'next/link';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
@@ -18,6 +18,20 @@ import {
   MDBDropdownMenu,
   MDBDropdownItem
 } from 'mdbreact';
+
+const NavLink: React.FC<{ children: any; href: string }> = ({
+  children,
+  href
+}) => {
+  const router = useRouter();
+  return (
+    <MDBNavItem active={router.pathname === href}>
+      <Link href={href}>
+        <a className="nav-link">{children}</a>
+      </Link>
+    </MDBNavItem>
+  );
+};
 
 export const Navbar = props => {
   const logout = () => {
@@ -36,26 +50,14 @@ export const Navbar = props => {
 
   const userLinks = (
     <MDBNavbarNav right>
-      <MDBNavItem>
-        <Link href="/">
-          <a className="nav-link">Home</a>
-        </Link>
-      </MDBNavItem>
-      <MDBNavItem>
-        <Link href="/products">
-          <a className="nav-link">Products</a>
-        </Link>
-      </MDBNavItem>
+      <NavLink href="/">Home</NavLink>
+      <NavLink href="/products">Products</NavLink>
+      <NavLink href="/cart">Cart</NavLink>
       <MDBNavItem>
         <Link href="/">
           <a onClick={logout} className="nav-link">
             Logout
           </a>
-        </Link>
-      </MDBNavItem>
-      <MDBNavItem>
-        <Link href={`/cart`}>
-          <a className="nav-link">Cart</a>
         </Link>
       </MDBNavItem>
       <MDBNavItem>
@@ -74,31 +76,11 @@ export const Navbar = props => {
 
   const guestLinks = (
     <MDBNavbarNav right>
-      <MDBNavItem>
-        <Link href="/">
-          <a className="nav-link">Home</a>
-        </Link>
-      </MDBNavItem>
-      <MDBNavItem>
-        <Link href="/products">
-          <a className="nav-link">Products</a>
-        </Link>
-      </MDBNavItem>
-      <MDBNavItem>
-        <Link href="/login">
-          <a className="nav-link">Login</a>
-        </Link>
-      </MDBNavItem>
-      <MDBNavItem>
-        <Link href="/register">
-          <a className="nav-link">Sign Up</a>
-        </Link>
-      </MDBNavItem>
-      <MDBNavItem>
-        <Link href={`/cart`}>
-          <a className="nav-link">Cart</a>
-        </Link>
-      </MDBNavItem>
+      <NavLink href="/">Home</NavLink>
+      <NavLink href="/products">Products</NavLink>
+      <NavLink href="/login">Login</NavLink>
+      <NavLink href="/register">Sign Up</NavLink>
+      <NavLink href="/cart">Cart</NavLink>
     </MDBNavbarNav>
   );
 
