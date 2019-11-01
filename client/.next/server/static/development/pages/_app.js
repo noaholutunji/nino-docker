@@ -2587,7 +2587,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const NavLink = ({
-  children,
+  title,
   href
 }) => {
   const router = Object(next_router__WEBPACK_IMPORTED_MODULE_3__["useRouter"])();
@@ -2597,7 +2597,7 @@ const NavLink = ({
     href: href
   }, __jsx("a", {
     className: "nav-link"
-  }, children)));
+  }, title)));
 };
 
 const Navbar = props => {
@@ -2621,17 +2621,15 @@ const Navbar = props => {
   const userLinks = __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavbarNav"], {
     right: true
   }, __jsx(NavLink, {
+    title: "Home",
     href: "/"
-  }, "Home"), __jsx(NavLink, {
+  }), __jsx(NavLink, {
+    title: "Products",
     href: "/products"
-  }, "Products"), __jsx(NavLink, {
+  }), __jsx(NavLink, {
+    title: "Cart",
     href: "/cart"
-  }, "Cart"), __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavItem"], null, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "/"
-  }, __jsx("a", {
-    onClick: logout,
-    className: "nav-link"
-  }, "Logout"))), __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavItem"], null, __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBDropdown"], null, __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBDropdownToggle"], {
+  }), __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavItem"], null, __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBDropdown"], null, __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBDropdownToggle"], {
     nav: true,
     caret: true
   }, __jsx("span", {
@@ -2640,21 +2638,31 @@ const Navbar = props => {
     href: "#!"
   }, "Orders"), __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBDropdownItem"], {
     href: "#!"
-  }, "Account")))));
+  }, "Account")))), __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavItem"], null, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    href: "/"
+  }, __jsx("a", {
+    onClick: logout,
+    className: "nav-link"
+  }, "Logout"))));
 
   const guestLinks = __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavbarNav"], {
     right: true
   }, __jsx(NavLink, {
+    title: "Home",
     href: "/"
-  }, "Home"), __jsx(NavLink, {
+  }), __jsx(NavLink, {
+    title: "Products",
     href: "/products"
-  }, "Products"), __jsx(NavLink, {
+  }), __jsx(NavLink, {
+    title: "Login",
     href: "/login"
-  }, "Login"), __jsx(NavLink, {
+  }), __jsx(NavLink, {
+    title: "Sign Up",
     href: "/register"
-  }, "Sign Up"), __jsx(NavLink, {
+  }), __jsx(NavLink, {
+    title: "Cart",
     href: "/cart"
-  }, "Cart"));
+  }));
 
   return __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavbar"], {
     color: "indigo",

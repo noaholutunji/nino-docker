@@ -27876,7 +27876,7 @@ function warning(message) {
 /*!***************************************************************!*\
   !*** ./node_modules/react-router-dom/esm/react-router-dom.js ***!
   \***************************************************************/
-/*! exports provided: MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter, BrowserRouter, HashRouter, Link, NavLink */
+/*! exports provided: BrowserRouter, HashRouter, Link, NavLink, MemoryRouter, Prompt, Redirect, Route, Router, StaticRouter, Switch, __RouterContext, generatePath, matchPath, useHistory, useLocation, useParams, useRouteMatch, withRouter */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -33077,7 +33077,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 var NavLink = function NavLink(_ref) {
-  var children = _ref.children,
+  var title = _ref.title,
       href = _ref.href;
   var router = Object(next_router__WEBPACK_IMPORTED_MODULE_3__["useRouter"])();
   return __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavItem"], {
@@ -33086,7 +33086,7 @@ var NavLink = function NavLink(_ref) {
     href: href
   }, __jsx("a", {
     className: "nav-link"
-  }, children)));
+  }, title)));
 };
 
 var Navbar = function Navbar(props) {
@@ -33109,17 +33109,15 @@ var Navbar = function Navbar(props) {
   var userLinks = __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavbarNav"], {
     right: true
   }, __jsx(NavLink, {
+    title: "Home",
     href: "/"
-  }, "Home"), __jsx(NavLink, {
+  }), __jsx(NavLink, {
+    title: "Products",
     href: "/products"
-  }, "Products"), __jsx(NavLink, {
+  }), __jsx(NavLink, {
+    title: "Cart",
     href: "/cart"
-  }, "Cart"), __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavItem"], null, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
-    href: "/"
-  }, __jsx("a", {
-    onClick: logout,
-    className: "nav-link"
-  }, "Logout"))), __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavItem"], null, __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBDropdown"], null, __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBDropdownToggle"], {
+  }), __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavItem"], null, __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBDropdown"], null, __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBDropdownToggle"], {
     nav: true,
     caret: true
   }, __jsx("span", {
@@ -33128,21 +33126,31 @@ var Navbar = function Navbar(props) {
     href: "#!"
   }, "Orders"), __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBDropdownItem"], {
     href: "#!"
-  }, "Account")))));
+  }, "Account")))), __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavItem"], null, __jsx(next_link__WEBPACK_IMPORTED_MODULE_2___default.a, {
+    href: "/"
+  }, __jsx("a", {
+    onClick: logout,
+    className: "nav-link"
+  }, "Logout"))));
 
   var guestLinks = __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavbarNav"], {
     right: true
   }, __jsx(NavLink, {
+    title: "Home",
     href: "/"
-  }, "Home"), __jsx(NavLink, {
+  }), __jsx(NavLink, {
+    title: "Products",
     href: "/products"
-  }, "Products"), __jsx(NavLink, {
+  }), __jsx(NavLink, {
+    title: "Login",
     href: "/login"
-  }, "Login"), __jsx(NavLink, {
+  }), __jsx(NavLink, {
+    title: "Sign Up",
     href: "/register"
-  }, "Sign Up"), __jsx(NavLink, {
+  }), __jsx(NavLink, {
+    title: "Cart",
     href: "/cart"
-  }, "Cart"));
+  }));
 
   return __jsx(mdbreact__WEBPACK_IMPORTED_MODULE_7__["MDBNavbar"], {
     color: "indigo",
