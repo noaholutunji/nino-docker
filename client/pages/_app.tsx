@@ -50,7 +50,7 @@ class MyApp extends App<Props> {
             margin: 0 0 100px;
           }
           #FooterStyle {
-            background-color: #007bff;
+            background-color: indigo;
             position: absolute;
             bottom: 0;
             width: 100%;
