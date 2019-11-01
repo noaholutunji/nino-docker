@@ -50,13 +50,7 @@ export const Navbar = props => {
       <NavLink title="Home" href="/" />
       <NavLink title="Products" href="/products" />
       <NavLink title="Cart" href="/cart" />
-      <MDBNavItem>
-        <Link href="/">
-          <a onClick={logout} className="nav-link">
-            Logout
-          </a>
-        </Link>
-      </MDBNavItem>
+
       <MDBNavItem>
         <MDBDropdown>
           <MDBDropdownToggle nav caret>
@@ -67,6 +61,13 @@ export const Navbar = props => {
             <MDBDropdownItem href="#!">Account</MDBDropdownItem>
           </MDBDropdownMenu>
         </MDBDropdown>
+      </MDBNavItem>
+      <MDBNavItem>
+        <Link href="/">
+          <a onClick={logout} className="nav-link">
+            Logout
+          </a>
+        </Link>
       </MDBNavItem>
     </MDBNavbarNav>
   );
