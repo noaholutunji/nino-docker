@@ -15,10 +15,10 @@ before_install:
   - gcloud config set compute/zone us-central1-a
   - gcloud container clusters get-credentials ninostyle-cluster
   - echo "$DOCKER_PASSWORD"	| docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t noalistic/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t noalistic/client-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run noalistic/react-test npm test -- --coverage
+  - docker run -e CI=true noalistic/client-test npm test -- --coverage
 
 deploy:
   provider: script
