@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      component: server
+  template:
+    metadata:
+      labels:
+        component: server
+    spec:
+      containers:
+        - name: server
+          image: noalistic/ninostyle-server
+          ports:
+            - containerPort: 5000
+          env:
+            - name: MONGO_HOST
+              value: mongo-cluster-ip-service
+            - name: MONGO_PORT
+              value: '27017'
+            - name: MONGODB_URL
+              value: mongodb://mongo-cluster-ip-service:27017/ninostyle-docker
+            - name: JWT_SECRET
+              value: thisismynewcourse
