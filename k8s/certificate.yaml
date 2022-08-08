@@ -1,0 +1,20 @@
+apiVersion: certmanager.k8s.io/v1alpha1
+kind: Certificate
+metadata:
+  name: ninostyle-tls
+spec:
+  secretName: ninostyle
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: ninostyle.ml
+  dnsNames:
+    - ninostyle.ml
+    - www.ninostyle.ml
+  acme:
+    config:
+      - http01:
+          ingressClass: nginx
+        domains:
+          - ninostyle.ml
+          - www.ninostyle.ml
