@@ -5,16 +5,16 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /$1
-    # certmanager.k8s.io/cluster-issuer: 'letsencrypt-prod'
-    # nginx.ingress.kubernetes.io/ssl-redirect: 'false'
+    certmanager.k8s.io/cluster-issuer: 'letsencrypt-prod'
+    nginx.ingress.kubernetes.io/ssl-redirect: 'false'
 spec:
-  # tls:
-  #   - hosts:
-  #       - multi-k8s.ml
-  #       - www.multi-k8s.ml
-  #     secretName: multi-k8s
+  tls:
+    - hosts:
+        - ninostyle.ml
+        - www.ninostyle.ml
+      secretName: ninostyle-ml
   rules:
-    # - host: multi-k8s.ml
+    - host: ninostyle.ml
     - http:
         paths:
           - path: /?(.*)
@@ -25,14 +25,14 @@ spec:
             backend:
               serviceName: server-cluster-ip-service
               servicePort: 5000
-    # - host: www.multi-k8s.ml
-    # http:
-    #   paths:
-    #     - path: /?(.*)
-    #       backend:
-    #         serviceName: client-cluster-ip-service
-    #         servicePort: 3000
-    #     - path: /api/?(.*)
-    #       backend:
-    #         serviceName: server-cluster-ip-service
-    #         servicePort: 5000
+    - host: www.ninostyle.ml
+    http:
+      paths:
+        - path: /?(.*)
+          backend:
+            serviceName: client-cluster-ip-service
+            servicePort: 3000
+        - path: /api/?(.*)
+          backend:
+            serviceName: server-cluster-ip-service
+            servicePort: 5000
