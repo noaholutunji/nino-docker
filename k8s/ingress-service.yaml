@@ -15,7 +15,7 @@ spec:
       secretName: ninostyle-ml
   rules:
     - host: ninostyle.ml
-    - http:
+      http:
         paths:
           - path: /?(.*)
             backend:
