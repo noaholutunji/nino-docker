@@ -36,7 +36,7 @@ export const Navbar = props => {
 
   const userLinks = (
     <MDBNavbarNav right>
-      <MDBNavItem active>
+      <MDBNavItem>
         <Link href="/">
           <a className="nav-link">Home</a>
         </Link>
@@ -74,7 +74,7 @@ export const Navbar = props => {
 
   const guestLinks = (
     <MDBNavbarNav right>
-      <MDBNavItem active>
+      <MDBNavItem>
         <Link href="/">
           <a className="nav-link">Home</a>
         </Link>
