@@ -34,7 +34,7 @@ const Body = (props: IntProps) => {
     alert('Item added to cart!');
   };
   return (
-    <MDBCol className="col-sm-12 col-lg-3 col-md-4 pb-1">
+    <MDBCol sm="12" md="6" lg="3">
       <MDBCard
         className="mb-lg-0 my-4"
         style={{ maxHeight: '34rem' }}
